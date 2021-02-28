@@ -7,6 +7,13 @@ router.get('/', async(req, res) => {
     res.json(films);
 });
 
+router.get('/:title', async(req, res) => {
+    const titleFilm = await Film.findOne(req.body, {
+        where: { title: req.params.filmTitle }
+    });
+    res.json(titleFilm);
+});
+
 router.post('/', async(req, res) => {
     const film = await Film.create(req.body);
     res.json(film);
