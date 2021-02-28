@@ -5,7 +5,7 @@ module.exports = (sequelize, type) => {
             primaryKey: true,
             autoIncrement: true
         },
-        tittle: type.STRING,
+        title: type.STRING,
         description: type.STRING,
         year: type.INTEGER,
         director: type.STRING,
@@ -19,6 +19,7 @@ module.exports = (sequelize, type) => {
         adult: {
             type: type.BOOLEAN,
             default: false
-        },
+        }
     });
+
 };

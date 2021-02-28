@@ -3,9 +3,11 @@
 const express = require('express');
 
 const app = express();
-const db = require('./db')
+const db = require('./db');
+const apiRouter = require('./routes/api');
 
 app.use(express.json());
+app.use('/api', apiRouter);
 
 
 
