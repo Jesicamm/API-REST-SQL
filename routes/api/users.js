@@ -13,7 +13,7 @@ router.post('/login', async(req, res) => {
     if (user) {
         const equal = bcrypt.compareSync(req.body.password, user.password);
         if (equal) {
-            res.json({ succes: 'todo ok' });
+            res.json({ succes: '/api/films' });
         } else {
             res.json({ error: "error en usuario y/o contraseña" });
         }
@@ -22,5 +22,11 @@ router.post('/login', async(req, res) => {
     }
 });
 
+router.delete('/:userId', async(req, res) => {
+    await User.destroy({
+        where: { id: req.params.userId }
+    });
+    res.json({ sucess: 'El usuario ha sido eliminado' })
+});
 
 module.exports = router;
