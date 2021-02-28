@@ -1,6 +1,7 @@
 const Sequelize = require('sequelize');
 
 const FilmModel = require('./models/films');
+const UserModel = require('./models/users');
 
 const sequelize = new Sequelize('xhFFXheBA5', 'xhFFXheBA5', 'qi66nNHnJR', {
     host: 'remotemysql.com',
@@ -8,6 +9,7 @@ const sequelize = new Sequelize('xhFFXheBA5', 'xhFFXheBA5', 'qi66nNHnJR', {
 });
 
 const Film = FilmModel(sequelize, Sequelize);
+const User = UserModel(sequelize, Sequelize);
 
 sequelize.sync({ force: false })
     .then(() => {
@@ -15,5 +17,6 @@ sequelize.sync({ force: false })
     });
 
 module.exports = {
-    Film
+    Film,
+    User
 }
